@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title> Tests </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+		<link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+
+		<!-- enyo (debug) -->
+		<script src="enyo/enyo.js"></script>
+
+		<!-- application (debug) -->
+		<script src="source/package.js" type="text/javascript"></script>
+
+		<style>
+			#app-wrapper,
+			#mocha{
+				position: absolute;
+				height: 100%;
+				width: 50%;
+				left: 0;
+				top:0;
+			}
+			#mocha{
+				overflow-y: scroll;
+				background: #fff;
+				color: #000;
+				left: auto;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body class="enyo-unselectable">
+		<div id="app-wrapper"></div>
+		<div id="mocha"></div>
+		<script src="node_modules/mocha/mocha.js"></script>
+		<script src="node_modules/expect.js/expect.js"></script>
+		<script>
+			mocha.ui('bdd');
+			mocha.reporter('html');
+			mocha.setup({globals: ['performance']});
+		</script>
+		<script src="test/test.js"></script>
+		<script>
+			// no logging
+			enyo.setLogLevel(-1);
+
+			var app = new App().renderInto("app-wrapper");
+
+			if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+			else { mocha.run(); }
+		</script>
+	</body>
+</html>

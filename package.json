@@ -1,0 +1,13 @@
+{
+	"name": "enyo-bootplate",
+	"version": "1.0.0",
+	"dependencies": {},
+	"devDependencies": {
+		"jshint": "",
+		"mocha-phantomjs": "",
+		"mocha": "",
+		"expect.js": "",
+		"json2htmlcov": ""
+	}
+}
+
